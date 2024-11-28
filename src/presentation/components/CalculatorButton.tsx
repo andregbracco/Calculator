@@ -2,19 +2,22 @@ import {Pressable, Text} from 'react-native';
 import {colors, styles} from '../../config/app-theme';
 
 interface Props {
-  label: string;
+  blackText?: boolean;
   color?: string;
   doubleSize?: boolean;
-  blackText?: boolean;
+  label: string;
+  onPress: () => void;
 }
 export const CalculatorButton = ({
   label,
   color = colors.darkGray,
   doubleSize = false,
   blackText = false,
+  onPress,
 }: Props) => {
   return (
     <Pressable
+      onPress={() => onPress()}
       style={({pressed}) => ({
         ...styles.button,
         backgroundColor: color,
